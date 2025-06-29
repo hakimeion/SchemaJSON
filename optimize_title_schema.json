@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "update_required": { "type": "boolean" },
+    "new_title":       { "type": "string",  "maxLength": 50 },
+    "reason":          { "type": "string" }
+  },
+  "required": ["update_required","new_title","reason"]
+}
