@@ -1,9 +1,48 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "All-in-one Airbnb SEO Output",
   "type": "object",
   "properties": {
-    "update_required": { "type": "boolean" },
-    "new_title":       { "type": "string",  "maxLength": 50 },
-    "reason":          { "type": "string" }
+    "keyword_research": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "keyword": { "type": "string" },
+          "intent":  { "type": "string" },
+          "reason":  { "type": "string" }
+        },
+        "required": ["keyword","intent","reason"]
+      },
+      "maxItems": 15
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "update_required": { "type": "boolean" },
+        "new_title":       { "type": "string", "maxLength": 50 },
+        "reason":          { "type": "string" }
+      },
+      "required": ["update_required","new_title","reason"]
+    },
+    "short_description": {
+      "type": "object",
+      "properties": {
+        "update_required": { "type": "boolean" },
+        "text":            { "type": "string", "maxLength": 500 },
+        "reason":          { "type": "string" }
+      },
+      "required": ["update_required","text","reason"]
+    },
+    "long_description": {
+      "type": "object",
+      "properties": {
+        "update_required": { "type": "boolean" },
+        "text":            { "type": "string" },
+        "reason":          { "type": "string" }
+      },
+      "required": ["update_required","text","reason"]
+    }
   },
-  "required": ["update_required","new_title","reason"]
+  "required": ["keyword_research","title","short_description","long_description"]
 }
